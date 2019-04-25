@@ -1,0 +1,14 @@
+Thu Apr 25 08:50:56 CEST 2019 : Apache Derby Network Server - 10.12.1.1 - (1704137) started and ready to accept connections on port 50000
+----------------------------------------------------------------
+Thu Apr 25 08:51:24 CEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-5342-ecf0-ffff9809bb18 
+on database directory /Users/LinusNyren/FromTheTop_DB_Derby/bin/EmployeeDb with class loader sun.misc.Launcher$AppClassLoader@60e53b93 
+Loaded from file:/Users/LinusNyren/FromTheTop_DB_Derby/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_181-b13
+user.dir=/Users/LinusNyren/FromTheTop_DB_Derby/bin
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.14.4
+derby.system.home=/Users/LinusNyren/FromTheTop_DB_Derby/bin
+Database Class Loader started - derby.database.classpath=''
