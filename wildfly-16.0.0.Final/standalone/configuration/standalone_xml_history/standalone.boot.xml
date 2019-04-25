@@ -150,7 +150,9 @@
         <subsystem xmlns="urn:jboss:domain:datasources:5.0">
             <datasources>
                 <datasource jndi-name="java:/Guestbook" pool-name="Guestbook" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:derby://localhost:50000/Guestbook</connection-url>
+                    <connection-url>
+                        jdbc:derby://localhost:50000/Guestbook
+                    </connection-url>
                     <driver>derbyclient.jar</driver>
                     <security>
                         <user-name>sa</user-name>

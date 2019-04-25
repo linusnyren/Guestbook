@@ -149,14 +149,6 @@
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:5.0">
             <datasources>
-                <datasource jndi-name="java:/Guestbook" pool-name="Guestbook" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:derby://localhost:50000/Guestbook</connection-url>
-                    <driver>derbyclient.jar</driver>
-                    <security>
-                        <user-name>sa</user-name>
-                        <password>sa</password>
-                    </security>
-                </datasource>
                 <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
                     <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
                     <driver>h2</driver>
@@ -523,9 +515,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-    <deployments>
-        <deployment name="derbyclient.jar" runtime-name="derbyclient.jar">
-            <content sha1="a3587be0bb338ee5f2d6758eac2f6defe3e27c8b"/>
-        </deployment>
-    </deployments>
 </server>
