@@ -1,1 +1,1 @@
-./Derby/bin/NetworkServerControl -p 50000 start
+./Derby/bin/startNetworkServer -p 50000

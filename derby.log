@@ -1,5 +1,5 @@
-Thu Apr 25 13:12:22 CEST 2019 : Apache Derby Network Server - 10.12.1.1 - (1704137) started and ready to accept connections on port 50000
-Thu Apr 25 13:14:21 CEST 2019 Thread[DRDAConnThread_2,5,main] Cleanup action starting
+Thu Apr 25 16:19:25 CEST 2019 : Apache Derby Network Server - 10.12.1.1 - (1704137) started and ready to accept connections on port 50000
+Thu Apr 25 16:20:39 CEST 2019 Thread[DRDAConnThread_2,5,main] Cleanup action starting
 java.sql.SQLException: Database 'Guestbook' not found.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -53,9 +53,22 @@ ERROR XJ004: Database 'Guestbook' not found.
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Thu Apr 25 13:14:21 CEST 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = Guestbook), (DRDAID = {1}), Database 'Guestbook' not found.
-Thu Apr 25 13:15:07 CEST 2019 Thread[DRDAConnThread_2,5,main] Cleanup action starting
-java.sql.SQLException: Database 'Guestbook' not found.
+Thu Apr 25 16:20:39 CEST 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = Guestbook), (DRDAID = {1}), Database 'Guestbook' not found.
+----------------------------------------------------------------
+Thu Apr 25 16:21:15 CEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-54dd-8597-000061f126e4 
+on database directory /Users/LinusNyren/Documents/GuestBook/Guestbook/Guestbook with class loader sun.misc.Launcher$AppClassLoader@60e53b93 
+Loaded from file:/Users/LinusNyren/Documents/GuestBook/Guestbook/Derby/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_181-b13
+user.dir=/Users/LinusNyren/Documents/GuestBook/Guestbook
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.14.4
+derby.system.home=/Users/LinusNyren/Documents/GuestBook/Guestbook
+Database Class Loader started - derby.database.classpath=''
+Fri Apr 26 10:43:24 CEST 2019 Thread[DRDAConnThread_6,5,main] Cleanup action starting
+java.sql.SQLException: Database 'employeedb' not found.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
@@ -77,12 +90,12 @@ java.sql.SQLException: Database 'Guestbook' not found.
 	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: ERROR XJ004: Database 'Guestbook' not found.
+Caused by: ERROR XJ004: Database 'employeedb' not found.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	... 21 more
 ============= begin nested exception, level (1) ===========
-ERROR XJ004: Database 'Guestbook' not found.
+ERROR XJ004: Database 'employeedb' not found.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -108,4 +121,59 @@ ERROR XJ004: Database 'Guestbook' not found.
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Thu Apr 25 13:15:07 CEST 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = Guestbook), (DRDAID = {2}), Database 'Guestbook' not found.
+Fri Apr 26 10:43:24 CEST 2019 Thread[DRDAConnThread_6,5,main] (DATABASE = employeedb), (DRDAID = {19}), Database 'employeedb' not found.
+Fri Apr 26 10:43:24 CEST 2019 Thread[DRDAConnThread_4,5,main] Cleanup action starting
+java.sql.SQLException: Database 'employeedb' not found.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+Caused by: ERROR XJ004: Database 'employeedb' not found.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 21 more
+============= begin nested exception, level (1) ===========
+ERROR XJ004: Database 'employeedb' not found.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
+	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
+============= end nested exception, level (1) ===========
+Cleanup action completed
+Fri Apr 26 10:43:24 CEST 2019 Thread[DRDAConnThread_4,5,main] (DATABASE = employeedb), (DRDAID = {20}), Database 'employeedb' not found.

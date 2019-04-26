@@ -21,6 +21,7 @@ public class NoteResource {
 	@GET
 	@Produces("application/json")
 	public List<Note> getAllNotes(){
+		System.out.println("Getallnotes()");
 		return service.getAllNotes();
 	}
 	@GET

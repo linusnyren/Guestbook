@@ -17,9 +17,9 @@
 	
 	<property name="server-dist" value="/Users/LinusNyren/Documents/GuestBook/Guestbook/wildfly-16.0.0.Final/standalone/deployments"/>
 	
-	<property name="server-jarfile" value="${server-dist}/EmployeeManagementServerApplication.jar"/>
-	<property name="client-jarfile" value="${client-dist}/EmployeeManagementServerClasses.jar"/>
-	<property name="warfile" value="${server-dist}/EmployeeManagement.war"/>	 
+	<property name="server-jarfile" value="${server-dist}/GuestBookServerApplication.jar"/>
+	<property name="client-jarfile" value="${client-dist}/GuestBookServerClasses.jar"/>
+	<property name="warfile" value="${server-dist}/GuestBook.war"/>	 
     
     <path id="my.classpath">
         <pathelement path="${java.class.path}"/>
@@ -103,7 +103,7 @@
 	   <delete file="${client-jarfile}"/>
 
 	   <jar destfile="${client-jarfile}" basedir="${bin}" 
-	   	  includes = "com/virtualpairprogrammers/employeemanagement/domain/**,**/*Service*">
+	   	  includes = "domain/*,management/ManagementService*">
 	   		
 	   	</jar>
 		  		  

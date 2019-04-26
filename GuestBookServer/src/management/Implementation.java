@@ -9,7 +9,7 @@ import dataAccess.DataAccessable;
 import domain.Note;
 
 @Stateless
-public class Implementation implements ManagementService{
+public class Implementation implements ManagementService, ManagementServiceRemote{
 
 	@Inject
 	private DataAccessable dao;
