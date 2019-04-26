@@ -1,5 +1,6 @@
 package dataAccess;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -36,6 +37,15 @@ public class DataAccessProduction implements DataAccessable {
 		Query q = em.createQuery("Select note from Note note");
 		List<Note> list = q.getResultList();
 		return list;
+	}
+
+	@Override
+	public List<Note> findByDate(Date date) {
+//		2019-04-26
+		String datum = date.getYear()+"-"+date.getMonth()+"-"+date.getDay();
+		Query q = em.createQuery("Select note from Note note where note.date=:datum");
+		q.setParameter("datum", datum);
+		return null;
 	}
 
 }

@@ -15,7 +15,7 @@
     <property name="server-dist" value="/opt/wildfly/wildfly/wildfly-10.0.0.Final/standalone/deployments"/>
     -->
 	
-	<property name="server-dist" value="/Users/LinusNyren/Documents/GuestBook/Guestbook/wildfly-16.0.0.Final/standalone/deployments"/>
+	<property name="server-dist" value="/Users/LinusNyren/Documents/GuestBook/wildfly-16.0.0.Final/standalone/deployments"/>
 	
 	<property name="server-jarfile" value="${server-dist}/GuestBookServerApplication.jar"/>
 	<property name="client-jarfile" value="${client-dist}/GuestBookServerClasses.jar"/>

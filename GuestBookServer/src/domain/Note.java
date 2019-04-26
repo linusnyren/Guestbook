@@ -35,12 +35,9 @@ public class Note implements Serializable{
 		this.date = date;
 	}
 	
-	public String dateFormatter(Date date) {
-		return date.getDay() +"-" +date.getMonth() +"-" +date.getTime();
-	}
 	@Override
 	public String toString() {
-		return author +" " +message +" " +id +" " +dateFormatter(date);
+		return author +" " +message +" " +id +" " +date;
 	}
 	public String getAuthor() {
 		return author;

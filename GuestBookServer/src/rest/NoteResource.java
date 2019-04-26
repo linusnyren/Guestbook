@@ -2,6 +2,7 @@ package rest;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -14,12 +15,14 @@ import management.ManagementService;
 
 @Stateless
 @Path("/GuestBook")
+@PermitAll
 public class NoteResource {
 	@Inject
 	private ManagementService service;
 	
 	@GET
 	@Produces("application/json")
+	@PermitAll
 	public List<Note> getAllNotes(){
 		System.out.println("Getallnotes()");
 		return service.getAllNotes();

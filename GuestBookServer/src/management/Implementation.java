@@ -1,5 +1,6 @@
 package management;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -27,6 +28,11 @@ public class Implementation implements ManagementService, ManagementServiceRemot
 	@Override
 	public List<Note> searchByAuthor(String author) {
 		return dao.findByAuthor(author);
+	}
+
+	@Override
+	public List<Note> searchByDate(Date date) {
+		return dao.findByDate(date);
 	}
 
 }

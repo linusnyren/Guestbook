@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -23,6 +24,7 @@ public class TestClient {
 		
 //		System.out.println(service.getAllNotes());
 		System.out.println(service.searchByAuthor("LEmma"));
+
 
 }
 }
