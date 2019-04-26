@@ -37,7 +37,7 @@ public class Note implements Serializable{
 	
 	@Override
 	public String toString() {
-		return author +" " +message +" " +id +" " +date;
+		return author +" skrev: " +message +" id:" +id +" datum: " +date.toString();
 	}
 	public String getAuthor() {
 		return author;

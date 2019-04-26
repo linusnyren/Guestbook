@@ -23,7 +23,7 @@ public class TestClient {
 		ManagementServiceRemote service = (ManagementServiceRemote) jndi.lookup(jndiname);
 		
 //		System.out.println(service.getAllNotes());
-		System.out.println(service.searchByAuthor("LEmma"));
+		System.out.println(service.getAllNotes());
 
 
 }

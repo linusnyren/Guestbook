@@ -15,16 +15,13 @@ import management.ManagementService;
 
 @Stateless
 @Path("/GuestBook")
-@PermitAll
 public class NoteResource {
 	@Inject
 	private ManagementService service;
 	
 	@GET
 	@Produces("application/json")
-	@PermitAll
 	public List<Note> getAllNotes(){
-		System.out.println("Getallnotes()");
 		return service.getAllNotes();
 	}
 	@GET
