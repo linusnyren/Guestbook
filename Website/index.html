@@ -5,18 +5,21 @@
   <meta charset="utf-8">
   <title>GuestBook</title>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
 </head>
 
 <body>
+  <h1>GuestBook</h1>
+  <h3>What´s on your mind?</h3>
   <div id="app">
-    <input type="text" name="" value="Author" v-model="author">
-    <input type="text" name="" value="Message" v-model="message">
+    <input type="text" name="Author" value="Author" v-model="author">
+    <input type="text" name="Message" value="Message" v-model="message">
     <input v-on:click='addNote' id='add-Note' type="button" name="addNote" value="addNote">
 
     <dl>
       <template v-for="note in notes">
-        <dt>{{ note.author }}</dt>
-        <dd>{{ note.message }}</dd>
+        <dt>id: {{note.id}}<b> {{ note.author }}</b> <i>wrote at {{note.date}}</i></dt>
+        <dd><i>{{note.message}}</i></dd>
       </template>
     </dl>
 
