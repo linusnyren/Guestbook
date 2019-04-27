@@ -3,7 +3,7 @@ An assignment at YRGO, studying java enterprise
 
 This is an way overbuilt GuestBook utilizing Java EnterPrise beans and RESTful api.
 The server(wildfly) talks to an underlying Derby database storing the messages.
-
+To get the database connections right, replace standalone.xml in wildfly with the one provided.
 
 You can GET all the Notes by GET calls to the URL which will return an JSON Array containing all the elements
 
