@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>GuestBook</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" name="" value="Author" v-model="author">
+    <input type="text" name="" value="Message" v-model="message">
+    <input v-on:click='addNote' id='add-Note' type="button" name="addNote" value="addNote">
+
+    <dl>
+      <template v-for="note in notes">
+        <dt>{{ note.author }}</dt>
+        <dd>{{ note.message }}</dd>
+      </template>
+    </dl>
+
+  </div>
+  <script src="index.js" charset="utf-8"></script>
+</body>
+
+</html>

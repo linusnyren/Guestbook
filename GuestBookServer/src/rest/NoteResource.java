@@ -2,10 +2,12 @@ package rest;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -23,6 +25,7 @@ public class NoteResource {
 	
 	@GET
 	@Produces("application/json")
+	@PermitAll
 	public List<Note> getAllNotes(){
 		return service.getAllNotes();
 	}
@@ -43,5 +46,15 @@ public class NoteResource {
 	public void insertNewNote(Note note) {
 			service.insertNewNote(note);
 		
+	}
+
+	@OPTIONS
+	public Response cors() {
+	    return Response.ok()
+	        .header("Access-Control-Allow-Origin", "*")
+	        .header("Access-Control-Allow-Methods",
+	            "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+	        // whatever other CORS headers
+	        .build();
 	}
 }
