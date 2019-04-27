@@ -1,7 +1,7 @@
-Fri Apr 26 17:19:37 CEST 2019 : Apache Derby Network Server - 10.12.1.1 - (1704137) started and ready to accept connections on port 50000
+Sat Apr 27 10:09:41 CEST 2019 : Apache Derby Network Server - 10.12.1.1 - (1704137) started and ready to accept connections on port 50000
 ----------------------------------------------------------------
-Fri Apr 26 17:19:46 CEST 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-5a3b-006a-000061f126e4 
+Sat Apr 27 10:09:49 CEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016a-5dd7-bf97-000061f126e4 
 on database directory /Users/LinusNyren/Documents/GuestBook/Guestbook/Guestbook with class loader sun.misc.Launcher$AppClassLoader@60e53b93 
 Loaded from file:/Users/LinusNyren/Documents/GuestBook/Guestbook/Derby/lib/derby.jar
 java.vendor=Oracle Corporation

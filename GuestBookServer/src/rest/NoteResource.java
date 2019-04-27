@@ -2,13 +2,15 @@ package rest;
 
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import domain.Note;
 import management.ManagementService;
@@ -35,5 +37,11 @@ public class NoteResource {
 	@Path("author/{author}")
 	public List<Note> getNotesByAuthor(@PathParam("author") String author){
 		return service.searchByAuthor(author);
+	}
+	@POST
+	@Consumes("application/json")
+	public void insertNewNote(Note note) {
+			service.insertNewNote(note);
+		
 	}
 }

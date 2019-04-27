@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.core.Response;
 
 import dataAccess.DataAccessable;
 import domain.Note;
@@ -33,6 +34,12 @@ public class Implementation implements ManagementService, ManagementServiceRemot
 	@Override
 	public List<Note> searchByDate(Date date) {
 		return dao.findByDate(date);
+	}
+
+	@Override
+	public void insertNewNote(Note note) {
+		// TODO Auto-generated method stub
+		dao.register(note);
 	}
 
 }

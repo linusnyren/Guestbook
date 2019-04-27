@@ -2,12 +2,14 @@ package domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -15,26 +17,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Note implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	int id;
 	
 	@Column(length=25)
 	String author;
+	@Column(name="created")
+	Date date;
 	@Column(length=240)
 	String message;
-	
-	int id;
-	
-	Date date;
 	
 //	Tom konstruktor krävs av JPA
 	public Note() {}
 	
-	public Note(String author, String message, int id, Date date) {
+	public Note(String author, String message) {
 		this.author = author;
 		this.message = message;
-		this.id = id;
-		this.date = date;
 	}
-	
+	@PrePersist
+	public void createdAt() {
+		Date datum = new Date(Calendar.getInstance().getTime().getTime());
+	    this.date = datum;
+	}
 	@Override
 	public String toString() {
 		return author +" skrev: " +message +" id:" +id +" datum: " +date.toString();

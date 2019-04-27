@@ -4,9 +4,11 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.ws.rs.core.Response;
 
 import domain.Note;
 
@@ -46,6 +48,19 @@ public class DataAccessProduction implements DataAccessable {
 		Query q = em.createQuery("Select note from Note note where note.date=:datum");
 		q.setParameter("datum", datum);
 		return null;
+	}
+
+	@Override
+	public void register(Note note) {
+//		[{"author":"Linus","message":"Funkar detta eller?","id":1,"date":1556229600000}]
+		try{
+			em.persist(note);
+			
+		}
+		catch(EntityExistsException e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 }
