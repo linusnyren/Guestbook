@@ -1,5 +1,5 @@
 # Guestbook
-first of all plz sign the guestbook http://linusnyren.ddns.net/Website/index.html
+First of all sign the guestbook http://linusnyren.ddns.net/Website/index.html <br>
 An assignment at YRGO, studying java enterprise
 
 This is an way overbuilt GuestBook utilizing Java EnterPrise beans and RESTful api.
