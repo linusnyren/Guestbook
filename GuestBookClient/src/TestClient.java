@@ -1,13 +1,11 @@
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.swing.JOptionPane;
 
-import domain.Note;
 import management.ManagementServiceRemote;
 
 
@@ -29,8 +27,6 @@ public class TestClient {
 //		Note test = new Note(JOptionPane.showInputDialog("Author"), JOptionPane.showInputDialog("Meddelande"));
 //		service.insertNewNote(test);
 		System.out.println(service.getAllNotes());
-
-
 
 }
 }

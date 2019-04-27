@@ -2,6 +2,7 @@ package domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ public class Note implements Serializable{
 	@Column(length=25)
 	String author;
 	@Column(name="created")
-	Date date;
+	Timestamp date;
 	@Column(length=240)
 	String message;
 	
@@ -35,7 +36,7 @@ public class Note implements Serializable{
 	}
 	@PrePersist
 	public void createdAt() {
-		Date datum = new Date(Calendar.getInstance().getTime().getTime());
+		Timestamp datum = new Timestamp(Calendar.getInstance().getTimeInMillis());
 	    this.date = datum;
 	}
 	@Override
@@ -66,11 +67,11 @@ public class Note implements Serializable{
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(Timestamp timestamp) {
+		this.date = timestamp;
 	}
 }

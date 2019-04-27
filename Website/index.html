@@ -12,8 +12,8 @@
   <h1>GuestBook</h1>
   <h3>What´s on your mind?</h3>
   <div id="app">
-    <input type="text" name="Author" value="Author" v-model="author">
-    <input type="text" name="Message" value="Message" v-model="message">
+    <input type="text" placeholder="Author"name="Author" value="Author" v-model="author">
+    <input type="text" placeholder="Message"name="Message" size="100"value="Message" v-model="message">
     <input v-on:click='addNote' id='add-Note' type="button" name="addNote" value="addNote">
 
     <dl>
