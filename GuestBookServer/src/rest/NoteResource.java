@@ -32,12 +32,14 @@ public class NoteResource {
 	@GET
 	@Produces("application/json")
 	@Path("noteid/{id}")
+	@PermitAll
 	public Note getNoteById(@PathParam("id") int id) {
 		return service.searchById(id);
 	}
 	@GET
 	@Produces("application/json")
 	@Path("author/{author}")
+	@PermitAll
 	public List<Note> getNotesByAuthor(@PathParam("author") String author){
 		return service.searchByAuthor(author);
 	}
