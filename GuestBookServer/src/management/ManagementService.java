@@ -15,4 +15,6 @@ public interface ManagementService {
 	public List<Note> searchByAuthor(String author);
 	public List<Note> searchByDate(Date date);
 	public void insertNewNote(Note note);
+	public void delete(Note note);
+	public void update(Note note);
 }

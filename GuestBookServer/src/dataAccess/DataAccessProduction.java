@@ -54,6 +54,7 @@ public class DataAccessProduction implements DataAccessable {
 	public void register(Note note) {
 //		[{"author":"Linus","message":"Funkar detta eller?","id":1,"date":1556229600000}]
 		try{
+//			"Insert into Note values(note.id, note.author, note.date, note.message);
 			em.persist(note);
 			
 		}
@@ -61,6 +62,33 @@ public class DataAccessProduction implements DataAccessable {
 			System.out.println(e.getMessage());
 		}
 		
+	}
+
+	@Override
+	public void delete(Note note) {
+		try {	
+//							"Select note from Note note where note.id=note.getId();"
+		Note noteToDelete = em.find(Note.class, note.getId());
+//		"Delete from Note where note.id=note.getId()"
+		em.remove(noteToDelete);
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Override
+	public void update(Note note) {
+		try {
+			Note noteToUpdate = em.find(Note.class, note.getId());
+			noteToUpdate.setMessage(note.getMessage());
+			noteToUpdate.setAuthor(note.getAuthor());
+//			Lite oklart hur detta funkar, det verkar sparas i ett lokalt objekt som sedan skriver över det gamla
+//			Utan att vi behöver anropa någon EntityManager funktion
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }

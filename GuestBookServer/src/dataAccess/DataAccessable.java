@@ -13,4 +13,6 @@ public interface DataAccessable {
 	public List<Note> getAll();
 	public List<Note> findByDate(Date date);
 	public void register(Note note);
+	public void delete(Note note);
+	public void update(Note note);
 }
