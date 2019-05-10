@@ -20,20 +20,21 @@ import domain.Note;
 import management.ManagementService;
 
 @Stateless
-@Path("/GuestBook")
+@Path("/GuestBook") //Localhost/PATH
 public class NoteResource {
-	@Inject
+	 			//Implementerar ett interface med en instans, typ samma som;
+	@Inject		//Management service = new ManagementService();
 	private ManagementService service;
 	
-	@GET
-	@Produces("application/json")
-	@PermitAll
+	@GET	//HTML GET anrop svarar denna på.
+	@Produces("application/json") //Här kan man även producera XML
+	@PermitAll	//PermitAll gör tjänsten tillgänglig för alla och overridear JavaEE säkerhetsfunktioner.
 	public List<Note> getAllNotes(){
 		return service.getAllNotes();
 	}
 	@GET
 	@Produces("application/json")
-	@Path("noteid/{id}")
+	@Path("noteid/{id}") //{id} är Path.Parameter.
 	@PermitAll
 	public Note getNoteById(@PathParam("id") int id) {
 		return service.searchById(id);

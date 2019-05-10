@@ -69,7 +69,7 @@ public class Main{
 	       Note note = service.getAllNotes().get(i);
 	       button.addActionListener(e -> showMenu(note));
 	       JPanel ui = new JPanel();
-	       ui.setBorder(BorderFactory.createTitledBorder(null, "text", TitledBorder.CENTER, TitledBorder.BOTTOM, new Font("times new roman",Font.PLAIN,12), Color.yellow));
+	       ui.setBorder(BorderFactory.createTitledBorder(null, "GuestBook Note id: " +service.getAllNotes().get(i).getId(), TitledBorder.CENTER, TitledBorder.BOTTOM, new Font("times new roman",Font.PLAIN,12), Color.black));
 	       ui.add(button);
 	       panel.add(ui);
 	       }   

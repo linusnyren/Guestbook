@@ -13,29 +13,30 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@XmlRootElement
+@Entity //Entity är det som kommer att lagras i databasen, en typ av instans.
+@XmlRootElement //XMLRootElement innebär att denna Klassen utgår som mall när man producerar JSON eller XML
 public class Note implements Serializable{
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	
+	@Id //Id i Databasen
+	@GeneratedValue(strategy=GenerationType.AUTO) //Som autogenereras
 	int id;
 	
-	@Column(length=25)
+	@Column(length=25) //Max längd på tecken i databasen
 	String author;
-	@Column(name="created")
+	@Column(name="created") //Namn på kolumn i databasen.
 	Timestamp date;
-	@Column(length=240)
+	@Column(length=240)	// Samma som author fast 240 tecken.
 	String message;
 	
 //	Tom konstruktor krävs av JPA
 	public Note() {}
 	
-	public Note(String author, String message) {
+	public Note(String author, String message) { //En enkel POJO konstrukor för att skapa instanser av klassen
 		this.author = author;
 		this.message = message;
 	}
-	@PrePersist
-	public void createdAt() {
+	@PrePersist //PrePersist körs alltid innan en instans av denna klassen persisteras.
+	public void createdAt() {	
 		Timestamp datum = new Timestamp(Calendar.getInstance().getTimeInMillis());
 	    this.date = datum;
 	}

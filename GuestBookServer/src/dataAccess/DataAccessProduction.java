@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import domain.Note;
 
-@Stateless
+@Stateless //Stateless innebär att en instans av klassen körs, men sedan slängs utan spår till skillnad från statefull. 
 public class DataAccessProduction implements DataAccessable {
 
 //	Hanterar DatabasAnropen
@@ -30,8 +30,7 @@ public class DataAccessProduction implements DataAccessable {
 	public List<Note> findByAuthor(String author) {
 		Query q = em.createQuery("Select note from Note note where note.author=:author");
 		q.setParameter("author", author);
-		List<Note> list = q.getResultList();
-		return list;
+		return q.getResultList();
 	}
 
 	@Override
@@ -43,20 +42,16 @@ public class DataAccessProduction implements DataAccessable {
 
 	@Override
 	public List<Note> findByDate(Date date) {
-//		2019-04-26
 		String datum = date.getYear()+"-"+date.getMonth()+"-"+date.getDay();
 		Query q = em.createQuery("Select note from Note note where note.date=:datum");
 		q.setParameter("datum", datum);
-		return null;
+		return q.getResultList();
 	}
 
 	@Override
 	public void register(Note note) {
-//		[{"author":"Linus","message":"Funkar detta eller?","id":1,"date":1556229600000}]
 		try{
-//			"Insert into Note values(note.id, note.author, note.date, note.message);
-			em.persist(note);
-			
+			em.persist(note); //Persist i korta lag är att lagra objektet
 		}
 		catch(EntityExistsException e) {
 			System.out.println(e.getMessage());
@@ -67,9 +62,10 @@ public class DataAccessProduction implements DataAccessable {
 	@Override
 	public void delete(Note note) {
 		try {	
-//							"Select note from Note note where note.id=note.getId();"
+//		Hämtar ett värde från databas med matchande id och Castar det till Note
+//		Denna Note måste sparas temporärt, för om flera anrop görs samtidigt och den till exempel redigeras.
 		Note noteToDelete = em.find(Note.class, note.getId());
-//		"Delete from Note where note.id=note.getId()"
+//		För att sedan skicka in den nya Note i remove för att ta bort matchande post i tabellen.
 		em.remove(noteToDelete);
 		}
 		catch(IllegalArgumentException e) {

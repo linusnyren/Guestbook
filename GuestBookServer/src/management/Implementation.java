@@ -38,19 +38,16 @@ public class Implementation implements ManagementService, ManagementServiceRemot
 
 	@Override
 	public void insertNewNote(Note note) {
-		// TODO Auto-generated method stub
 		dao.register(note);
 	}
 
 	@Override
 	public void delete(Note note) {
-		// TODO Auto-generated method stub
 		dao.delete(note);
 	}
 
 	@Override
 	public void update(Note note) {
-		// TODO Auto-generated method stub
 		dao.update(note);
 	}
 

@@ -8,7 +8,7 @@ new Vue({
   },
   el: '#app',
   created() {
-      fetch('http://localhost:8080/GuestBook/GuestBook/GuestBook/')
+      fetch('http://linusnyren.ddns.net:8080/GuestBook/GuestBook/GuestBook/')
           .then(response => response.json())
           .then(result => {
               let list = []
@@ -25,7 +25,7 @@ new Vue({
   },
   methods: {
     findbyauthor(){
-          fetch('http://localhost:8080/GuestBook/GuestBook/GuestBook/author/'+this.findAuthor)
+          fetch('http://linusnyren.ddns.net:8080/GuestBook/GuestBook/GuestBook/author/'+this.findAuthor)
               .then(response => response.json())
               .then(result => {
                   let list = []
@@ -41,7 +41,7 @@ new Vue({
               })
       },
       getAll(){
-            fetch('http://localhost:8080/GuestBook/GuestBook/GuestBook/')
+            fetch('http://linusnyren.ddns.net:8080/GuestBook/GuestBook/GuestBook/')
                 .then(response => response.json())
                 .then(result => {
                     let list = []
@@ -58,7 +58,7 @@ new Vue({
         },
     addNote() {
       let bodystring = '{ "author": "' +this.author +'", "message": "' +this.message +'"}'
-      fetch('http://localhost:8080/GuestBook/GuestBook/GuestBook/', {
+      fetch('http://linusnyren.ddns.net:8080/GuestBook/GuestBook/GuestBook/', {
 
         body: bodystring,
         headers: {
@@ -66,7 +66,7 @@ new Vue({
         },
         method: 'POST',
 
-      }).then(fetch('http://localhost:8080/GuestBook/GuestBook/GuestBook/')
+      }).then(fetch('http://linusnyren.ddns.net:8080/GuestBook/GuestBook/GuestBook/')
                 .then(response => response.json())
                 .then(result => {
                     let list = []
