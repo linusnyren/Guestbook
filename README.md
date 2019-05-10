@@ -1,5 +1,6 @@
 # Guestbook
 First of all sign the <a href="http://linusnyren.ddns.net/Website/index.html"> Guestbook</a> <br>
+Want to see the code for the website? <a href="https://gitlab.com/sebastianbilling/timeline"> Website</a> <br>
 <h2>An assignment at YRGO, studying java enterprise</h2>
 
 This is an way overbuilt GuestBook utilizing Java EnterPrise beans and RESTful api. <br>
