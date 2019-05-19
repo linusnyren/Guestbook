@@ -3,7 +3,6 @@ package Main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
@@ -23,23 +22,24 @@ import management.ManagementServiceRemote;
 public class Main{
 	static JTextField authorText;
 	static JTextArea messageText;
+	 static JPanel panelFrame, notes, conPanel;
+	 static JFrame frame;
 	static ManagementServiceRemote service = new Connection().getConnection();
 	public static void main(String[] args) {
-		getUI();
-	}
-	public static void getUI() {
-	       JFrame frame = new JFrame("Management");
+
+		frame = new JFrame("Management");
 	       frame.setLayout(new BorderLayout());
-	       JPanel panelFrame = new JPanel();
+	       panelFrame = new JPanel();
 	       panelFrame.setLayout(new BorderLayout());
-	       panelFrame.add(getNotesPanel(), BorderLayout.CENTER);
-	       panelFrame.add(getContributionPanel(), BorderLayout.NORTH);
+	       notes = getNotesPanel();
+	       panelFrame.add(notes, BorderLayout.CENTER);
+	       conPanel = getContributionPanel();
+	       panelFrame.add(conPanel, BorderLayout.NORTH);
 	       frame.add(panelFrame);
 	       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	       frame.setSize(800,600);
 	       
-	       frame.setVisible(true);
-	}
+	       frame.setVisible(true);}
 	
 	private static JPanel getContributionPanel() {
 		JPanel conPanel = new JPanel();
@@ -48,9 +48,11 @@ public class Main{
 		JTextArea conMessage = new JTextArea(3, 20);
 		JLabel conMessageLabel = new JLabel("Message");
 		JButton conButton = new JButton("Contribute");
+		JButton updateButton = new JButton("Update");
 		conPanel.add(conAuthorLabel); conPanel.add(conAuthor);
 		conPanel.add(conMessageLabel); conPanel.add(conMessage);
-		conPanel.add(conButton);
+		conPanel.add(conButton); conPanel.add(updateButton);
+		updateButton.addActionListener(e -> updatePanel());
 		conButton.addActionListener(e -> contribute(conAuthor.getText(), conMessage.getText()));
 		
 		return conPanel;
@@ -60,19 +62,33 @@ public class Main{
 		note.setAuthor(author);
 		note.setMessage(message);
 		service.insertNewNote(note);
-		JOptionPane.showMessageDialog(null, "Thank You!");
+	}
+	private static void updatePanel() {
+        frame.getContentPane().removeAll();
+        frame.invalidate();
+		frame.validate();
+		frame.repaint();
+	       notes = getNotesPanel();
+	       panelFrame.add(notes, BorderLayout.CENTER);
+	       conPanel = getContributionPanel();
+	       panelFrame.add(conPanel, BorderLayout.NORTH);
+	       frame.add(panelFrame);
+        frame.revalidate();
+		frame.repaint();
 	}
 	private static JPanel getNotesPanel() {
 		JPanel panel = new JPanel();
+		System.out.println("Fetching notes...");
 	       for (int i = 0; i < service.getAllNotes().size(); i++) {
-	       JButton button = new JButton(service.getAllNotes().get(i).getAuthor()+" skrev: " +service.getAllNotes().get(i).getMessage());
-	       Note note = service.getAllNotes().get(i);
-	       button.addActionListener(e -> showMenu(note));
+	       Note tempNote = service.getAllNotes().get(i);
+	       JButton button = new JButton(tempNote.getAuthor()+" skrev: " +tempNote.getMessage());
+	       button.addActionListener(e -> showMenu(tempNote));
 	       JPanel ui = new JPanel();
-	       ui.setBorder(BorderFactory.createTitledBorder(null, "GuestBook Note id: " +service.getAllNotes().get(i).getId(), TitledBorder.CENTER, TitledBorder.BOTTOM, new Font("times new roman",Font.PLAIN,12), Color.black));
+	       ui.setBorder(BorderFactory.createTitledBorder(null, "GuestBook Note id: " +tempNote.getId(), TitledBorder.CENTER, TitledBorder.BOTTOM, new Font("times new roman",Font.PLAIN,12), Color.black));
 	       ui.add(button);
 	       panel.add(ui);
-	       }   
+	       } 
+	     System.out.println("Notes were fetched!");
 		return panel;
 	}
 	private static void showMenu(Note note) {
